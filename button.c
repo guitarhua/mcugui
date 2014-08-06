@@ -24,6 +24,8 @@ void draw_button(uint16_t x, uint16_t y, uint8_t w, uint8_t filled,const char *t
 	}
 	else
 	{
+		draw_filledCircle(x+15,y+15,15.0f,0,0,0);
+		draw_filledCircle((x+w)-15,y+15,15.0f,0,0,0);
 		draw_circle(x+15,y+15,15.0f,3.0f,r,g,b);
 		draw_circle((x+w)-15,y+15,15.0f,3.0f,r,g,b);
 		draw_filledRect(x+15,y,w-30,29,0,0,0);
@@ -67,6 +69,8 @@ void draw_button8(uint16_t x, uint16_t y, uint8_t w, uint8_t filled,const char *
 	}
 	else
 	{
+		draw_filledCircle(x+7,y+7,7.0f,0,0,0);
+		draw_filledCircle((x+w)-7,y+7,7.0f,0,0,0);
 		draw_circle(x+7,y+7,7.0f,1.0f,r,g,b);
 		draw_circle((x+w)-7,y+7,7.0f,1.0f,r,g,b);
 		draw_filledRect(x+7,y,w-14,13,0,0,0);
