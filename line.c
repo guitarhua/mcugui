@@ -7,7 +7,7 @@
 
 
 #include "stdio.h"
-#include "main.h"
+#include "mcugui.h"
 #include <math.h>
 
 static void dla_plot(int x, int y, uint8_t r,uint8_t g , uint8_t b, float br)

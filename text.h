@@ -1,7 +1,7 @@
 #ifndef _TEXT_H
 #define _TEXT_H
 
-#include <stdint.h>
+#include "mcugui.h"
 
 void fill_8x6(uint8_t x, uint8_t y, uint8_t count,uint8_t r, uint8_t g , int8_t b);
 void draw_text_8x6(uint8_t x, uint8_t y, const char *text, uint8_t r,uint8_t g,uint8_t b);

@@ -1,10 +1,9 @@
 #include <string.h>
 
-#include "mcugui/button.h"
-#include "mcugui/rect.h"
-#include "mcugui/circle.h"
-#include "mcugui/text.h"
-#include "main.h"
+#include "button.h"
+#include "rect.h"
+#include "circle.h"
+#include "text.h"
 
 void draw_button(uint16_t x, uint16_t y, uint8_t w, uint8_t filled,const char *text,
 	uint8_t r,

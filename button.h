@@ -1,7 +1,7 @@
 #ifndef _BUTTON_H
 #define _BUTTON_H
 
-#include <stdint.h>
+#include "mcugui.h"
 
 void draw_button(uint16_t x, uint16_t y, uint8_t w, uint8_t filled,const char *text,
 	uint8_t r,

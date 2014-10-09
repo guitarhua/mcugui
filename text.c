@@ -5,7 +5,7 @@
 
 #include "font8x6.h"
 #include "font16pt.h"
-#include "main.h"
+#include "mcugui.h"
 
 void draw_char_inv_8x6(int x,int y, char text)
 {

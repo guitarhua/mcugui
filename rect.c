@@ -1,5 +1,5 @@
-#include "mcugui/rect.h"
-#include "main.h"
+#include "rect.h"
+#include "mcugui.h"
 
 
 void draw_filledRect(

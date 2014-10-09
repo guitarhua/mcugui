@@ -1,7 +1,7 @@
 #ifndef _WULINE_H
 #define _WULINE_H
 
-#include <stdint.h>
+#include "mcugui.h"
 
 void draw_line(
 	unsigned int x0, unsigned int y0,

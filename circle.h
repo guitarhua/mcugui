@@ -12,7 +12,7 @@
 	uint16_t slide_end );
 */
 
-#include <stdint.h>
+#include "mcugui.h"
 
 void draw_filledCircle(
 	unsigned int x, unsigned int y,

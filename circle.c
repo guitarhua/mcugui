@@ -2,7 +2,7 @@
 #include "main.h"
 #include <math.h>
 
-#include "armmath.h"
+#include "libs/armmath.h"
 
 
 static void dla_plot(int x, int y, uint8_t r,uint8_t g , uint8_t b, float br)
