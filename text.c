@@ -203,3 +203,32 @@ void draw_number_8x6(uint8_t x, uint8_t y, int32_t number, uint8_t length, uint8
 
 }
 
+void draw_number_inv_8x6(uint8_t x, uint8_t y, int32_t number, uint8_t length, uint8_t pad)
+{
+
+	char s[10];
+#ifdef SIMULATOR
+	sprintf(s, "%i", number);
+#else
+	sprintf(s, "%li", number);
+#endif
+
+	int len = strlen(s);
+
+	if (length < len) {
+		int i;
+		for (i = 0; i < length; i++) {
+			draw_char_inv_8x6(x, y, '*');
+			x+=6;
+		}
+		return;
+	}
+	int i;
+	for (i = 0; i < length - len; i++) {
+		draw_char_inv_8x6(x, y, pad);
+		x+=6;
+	}
+	draw_text_inv_8x6(x, y, (char*)s);
+
+}
+
