@@ -5,6 +5,40 @@
 #include "circle.h"
 #include "text.h"
 
+void draw_button_icon(uint16_t x, uint16_t y, uint8_t w, uint8_t filled,const char *text,
+	uint8_t r,
+	uint8_t g,
+	uint8_t b,
+	uint8_t r2,
+	uint8_t g2,
+	uint8_t b2 )
+{
+
+	if(filled == 1)
+	{
+
+		draw_filledCircle(x+15,y+15,15.0f,r,g,b);
+		draw_filledCircle(x+15,y+40,15.0f,r,g,b);
+		draw_filledCircle((x+w)-15,y+15,15.0f,r,g,b);
+		draw_filledCircle((x+w)-15,y+40,15.0f,r,g,b);
+		draw_filledRect(x+15,y,w-30,54,r,g,b);
+		draw_filledRect(x,y+15,w-1,24,r,g,b);
+	}
+	else
+	{
+		draw_filledCircle(x+15,y+15,15.0f,0,0,0);
+		draw_filledCircle((x+w)-15,y+15,15.0f,0,0,0);
+		draw_circle(x+15,y+15,15.0f,3.0f,r,g,b);
+		draw_circle((x+w)-15,y+15,15.0f,3.0f,r,g,b);
+		draw_filledRect(x+15,y,w-30,29,0,0,0);
+
+	}
+
+	uint8_t length = strlen(text)*7;
+	uint16_t pos = ((w-7)>>1)-(length>>1);
+	draw_text_8x6(x+11+pos,y+40,text,r2,g2,b2);
+};
+
 void draw_button(uint16_t x, uint16_t y, uint8_t w, uint8_t filled,const char *text,
 	uint8_t r,
 	uint8_t g,
