@@ -179,9 +179,9 @@ void draw_number_8x6(uint16_t x, uint16_t y, int32_t number, uint8_t length, uin
 
 	char s[10];
 #ifdef SIMULATOR
-	sprintf(s, "%i", number);
+	snprintf(s,10, "%i", number);
 #else
-	sprintf(s, "%li", number);
+	snprintf(s,10, "%i", number);
 #endif
 
 	int len = strlen(s);
@@ -208,9 +208,9 @@ void draw_number_inv_8x6(uint16_t x, uint16_t y, int32_t number, uint8_t length,
 
 	char s[10];
 #ifdef SIMULATOR
-	sprintf(s, "%i", number);
+	snprintf(s,10, "%i", number);
 #else
-	sprintf(s, "%li", number);
+	snprintf(s,10, "%i", number);
 #endif
 
 	int len = strlen(s);

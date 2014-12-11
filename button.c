@@ -34,9 +34,31 @@ void draw_button_icon(uint16_t x, uint16_t y, uint8_t w, uint8_t filled,const ch
 
 	}
 
-	uint8_t length = strlen(text)*7;
+	uint8_t length = strlen(text)*6;
 	uint16_t pos = ((w-7)>>1)-(length>>1);
 	draw_text_8x6(x+11+pos,y+40,text,r2,g2,b2);
+};
+
+
+void draw_button_h(uint16_t x, uint16_t y, uint8_t w, uint8_t height,const char *text,
+	uint8_t r,
+	uint8_t g,
+	uint8_t b,
+	uint8_t r2,
+	uint8_t g2,
+	uint8_t b2 )
+{
+
+	draw_filledCircle(x+15,y+15,15.0f,r,g,b);
+	draw_filledCircle(x+15,y+(height-15),15.0f,r,g,b);
+	draw_filledCircle((x+w)-15,y+15,15.0f,r,g,b);
+	draw_filledCircle((x+w)-15,y+(height-15),15.0f,r,g,b);
+	draw_filledRect(x+15,y,w-30,height-1,r,g,b);
+	draw_filledRect(x,y+15,w-1,height-30,r,g,b);
+
+	uint8_t length = strlen(text)*6;
+	uint16_t pos = (w>>1)-(length>>1);
+	draw_text_8x6(x+pos,(y+(height>>1))-4,text,r2,g2,b2);
 };
 
 void draw_button(uint16_t x, uint16_t y, uint8_t w, uint8_t filled,const char *text,
@@ -117,7 +139,7 @@ void draw_button8(uint16_t x, uint16_t y, uint8_t w, uint8_t filled,const char *
 
 	}
 
-	uint8_t length = strlen(text)*7;
+	uint8_t length = strlen(text)*6;
 	uint16_t pos = ((w-7)>>1)-(length>>1);
 	draw_text_8x6(x+8+pos,y,text,r2,g2,b2);
 

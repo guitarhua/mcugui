@@ -2,6 +2,6 @@
 #define _MCUGUI_H
 
 #include <stdint.h>
-#include "main.h"
+#include "pixel_hal.h"
 
 #endif
