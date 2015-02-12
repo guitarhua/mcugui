@@ -1,6 +1,7 @@
 #include "stdio.h"
-#include "main.h"
 #include <math.h>
+
+#include "circle.h"
 
 #include "libs/armmath.h"
 
