@@ -10,6 +10,13 @@ void draw_line(
 	uint8_t g,
 	uint8_t b );
 
+void draw_line_width(
+	unsigned int x0, unsigned int y0, 
+	unsigned int x1, unsigned int y1, 
+	float wd,
+	uint8_t r, 
+	uint8_t g, 
+	uint8_t b );
 
 
 #endif
