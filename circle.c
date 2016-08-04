@@ -61,6 +61,10 @@ void draw_filledCircle(
 				dla_plot(x+i,y-j,r,g,b,1-(dist-rad+1));
 				dla_plot(x-i,y-j,r,g,b,1-(dist-rad+1));
 			}
+			else
+			{
+				j=i+1;
+			}
 		}
 	}
 
