@@ -4,7 +4,7 @@
 #include "circle.h"
 #include "rect.h"
 
-#include "libs/armmath.h"
+#include "armmath.h"
 
 
 static void dla_plot(int x, int y, uint8_t r,uint8_t g , uint8_t b, float br)
@@ -30,17 +30,20 @@ void draw_filledCircle(
 		uint8_t g,
 		uint8_t b )
 {
-
-	float i,j;
-
 	int inside = 0;
 
-	for(i=rad;i>=0;i--)
+	int maxins = rad*rad;
+	int maxcir = (rad-1)*(rad-1);
+
+	for(int i=rad;i>=0;i--)
 	{
-		for(j=0;j<(i+1);j++)
+		int dist_a = i*i;
+
+		for(int j=0;j<(i+1);j++)
 		{
-			float dist = pythagorasf( j,i );
-			if(dist <= rad-1)
+			int dist = dist_a + j*j;
+
+			if(dist <= maxcir)
 			{
 				setLedXY(x-j,y+i,r,g,b);
 				setLedXY(x+j,y+i,r,g,b);
@@ -58,17 +61,19 @@ void draw_filledCircle(
 					i=0;
 				}
 
-			}else if(dist < rad)
+			}else if(dist < maxins)
 			{
-				dla_plot(x-j,y+i,r,g,b,1-(dist-rad+1));
-				dla_plot(x+j,y+i,r,g,b,1-(dist-rad+1));
-				dla_plot(x+j,y-i,r,g,b,1-(dist-rad+1));
-				dla_plot(x-j,y-i,r,g,b,1-(dist-rad+1));
+				float pct = 1 - ((dist-maxcir)/(float)(maxins-maxcir));
 
-				dla_plot(x-i,y+j,r,g,b,1-(dist-rad+1));
-				dla_plot(x+i,y+j,r,g,b,1-(dist-rad+1));
-				dla_plot(x+i,y-j,r,g,b,1-(dist-rad+1));
-				dla_plot(x-i,y-j,r,g,b,1-(dist-rad+1));
+				dla_plot(x-j,y+i,r,g,b,pct);
+				dla_plot(x+j,y+i,r,g,b,pct);
+				dla_plot(x+j,y-i,r,g,b,pct);
+				dla_plot(x-j,y-i,r,g,b,pct);
+
+				dla_plot(x-i,y+j,r,g,b,pct);
+				dla_plot(x+i,y+j,r,g,b,pct);
+				dla_plot(x+i,y-j,r,g,b,pct);
+				dla_plot(x-i,y-j,r,g,b,pct);
 			}
 			else
 			{
@@ -81,7 +86,6 @@ void draw_filledCircle(
 	{
 		draw_filledRect(x-inside,y-inside,inside*2,inside*2,r,g,b);
 	}
-
 }
 
 void draw_circle(
