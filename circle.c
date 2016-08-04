@@ -2,6 +2,7 @@
 #include <math.h>
 
 #include "circle.h"
+#include "rect.h"
 
 #include "libs/armmath.h"
 
@@ -32,7 +33,9 @@ void draw_filledCircle(
 
 	float i,j;
 
-	for(i=0;i<rad;i++)
+	int inside = 0;
+
+	for(i=rad;i>=0;i--)
 	{
 		for(j=0;j<(i+1);j++)
 		{
@@ -48,6 +51,12 @@ void draw_filledCircle(
 				setLedXY(x-i,y+j,r,g,b);
 				setLedXY(x+i,y+j,r,g,b);
 				setLedXY(x+i,y-j,r,g,b);
+
+				if(j==i)
+				{
+					inside=i;
+					i=0;
+				}
 
 			}else if(dist < rad)
 			{
@@ -68,7 +77,10 @@ void draw_filledCircle(
 		}
 	}
 
-
+	if(inside)
+	{
+		draw_filledRect(x-inside,y-inside,inside*2,inside*2,r,g,b);
+	}
 
 }
 
