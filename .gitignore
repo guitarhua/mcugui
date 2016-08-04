@@ -1,0 +1,4 @@
+*.lst
+*.o
+.DS_Store
+
