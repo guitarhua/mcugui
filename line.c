@@ -115,8 +115,8 @@ void draw_line(
 
 void draw_line_width(unsigned int x0, unsigned int y0, unsigned int x1, unsigned int y1, float wd,uint8_t r, uint8_t g, uint8_t b)
 { 
-	int dx = abs(x1-x0), sx = x0 < x1 ? 1 : -1; 
-	int dy = abs(y1-y0), sy = y0 < y1 ? 1 : -1; 
+	int dx = abs((signed int)(x1-x0)), sx = x0 < x1 ? 1 : -1; 
+	int dy = abs((signed int)(y1-y0)), sy = y0 < y1 ? 1 : -1; 
 	int err = dx-dy, e2;
 	unsigned int x2, y2;                          /* error value e_xy */
 	float ed = dx+dy == 0 ? 1 : sqrtf((float)dx*dx+(float)dy*dy);
